@@ -31,10 +31,6 @@ class PackageManager
       via.packages.getAvailablePackageNames().indexOf(packageName) > -1
 
   packageHasSettings: (packageName) ->
-    grammars = via.grammars.getGrammars() ? []
-    for grammar in grammars when grammar.path
-      return true if grammar.packageName is packageName
-
     pack = via.packages.getLoadedPackage(packageName)
     pack.activateConfig() if pack? and not via.packages.isPackageActive(packageName)
     schema = via.config.getSchema(packageName)
@@ -85,6 +81,7 @@ class PackageManager
   loadInstalled: (callback) ->
     args = ['ls', '--json']
     errorMessage = 'Fetching local packages failed.'
+    debugger;
     vpmProcess = @runCommand args, (code, stdout, stderr) ->
       if code is 0
         try

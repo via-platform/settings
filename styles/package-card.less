@@ -1,0 +1,56 @@
+@import "variables";
+@import "ui-variables";
+
+.settings-view .package-container
+{
+    margin-top: 50px;
+    
+    .row
+    {
+        padding: 20px 0;
+        border-top: 1px solid #181818;
+    }
+}
+
+.settings-view .package-card
+{
+    display: flex;
+
+    .body
+    {
+        flex: 1;
+    }
+
+    .package-title
+    {
+        display: flex;
+        line-height: 24px;
+    }
+
+    h4.package-name
+    {
+        font-family: Inconsolata;
+        font-size: 18px;
+        font-weight: 700;
+        -webkit-font-smoothing: antialiased;
+        margin: 0 10px 0 0;
+    }
+
+    .package-version
+    {
+        color: @text-color-subtle;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .deprecation-badge
+    {
+        display: none;
+    }
+
+    .package-description
+    {
+        color: @text-color-subtle;
+        font-size: 13px;
+    }
+}
