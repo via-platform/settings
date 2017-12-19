@@ -81,7 +81,7 @@ class PackageManager
   loadInstalled: (callback) ->
     args = ['ls', '--json']
     errorMessage = 'Fetching local packages failed.'
-    debugger;
+
     vpmProcess = @runCommand args, (code, stdout, stderr) ->
       if code is 0
         try

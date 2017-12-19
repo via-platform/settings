@@ -198,7 +198,7 @@
 
     .section {
         padding: @section-padding;
-        border-top: 1px solid @pane-border-color;
+        // border-top: 1px solid @pane-border-color;
 
         &:first-child,
         &:last-child {
@@ -235,11 +235,6 @@
         width: 100%;
         max-width: 800px;
 
-        &.packages-container
-        {
-            max-width: none;
-        }
-
         &.updates-container {
             .package-container {
                 > .row {
@@ -270,6 +265,7 @@
 
     .section-heading-count {
         margin-left: 0.5em;
+        opacity: 0.6;
     }
 
     .section-body {
@@ -280,7 +276,7 @@
         margin: @section-padding 0;
 
         .sub-section-heading {
-            color: @text-color-subtle;
+            color: #FFF; //@text-color-subtle;
             font-size: 1.4em;
             font-weight: bold;
             line-height: 1;
@@ -697,6 +693,19 @@
     }
 
     .install-panel
+    {
+        .search-container
+        {
+            margin-top: 40px;
+
+            .input-text
+            {
+                max-width: 500px;
+            }
+        }
+    }
+
+    .packages-panel
     {
         .search-container
         {

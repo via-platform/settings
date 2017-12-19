@@ -3,8 +3,8 @@
 
 .settings-view .package-container
 {
-    margin-top: 50px;
-    
+    margin-top: 20px;
+
     .row
     {
         padding: 20px 0;
@@ -15,6 +15,7 @@
 .settings-view .package-card
 {
     display: flex;
+    align-items: center;
 
     .body
     {
@@ -24,7 +25,8 @@
     .package-title
     {
         display: flex;
-        line-height: 24px;
+        margin-bottom: 2px;
+        align-items: baseline;
     }
 
     h4.package-name
@@ -34,13 +36,15 @@
         font-weight: 700;
         -webkit-font-smoothing: antialiased;
         margin: 0 10px 0 0;
+        line-height: 24px;
     }
 
     .package-version
     {
         color: @text-color-subtle;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 500;
+        line-height: 12px;
     }
 
     .deprecation-badge
@@ -52,5 +56,18 @@
     {
         color: @text-color-subtle;
         font-size: 13px;
+    }
+
+    button.btn.status-indicator
+    {
+        padding: 0;
+        width: 5px;
+        pointer-events: none;
+        background: @primary-color-up;
+
+        &.disabled
+        {
+            background: @primary-color-down;
+        }
     }
 }
