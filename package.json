@@ -33,15 +33,11 @@
     "semver": "^5.3.0",
     "underscore-plus": "^1.0.6"
   },
-  "devDependencies": {
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-env": "^1.6.0"
-  },
   "providedServices": {},
   "consumedServices": {
     "action-bar": {
       "versions": {
-        "^0.0.0": "consumeActionBar"
+        "^0.1.0": "consumeActionBar"
       }
     }
   }
