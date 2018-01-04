@@ -1,39 +1,24 @@
 @import "variables";
 @import "ui-variables";
 @import "./package-card.less";
+@import "./accounts-panel.less";
+@import "./add-account-modal.less";
 
 @section-padding: 50px;
 @breadcrumb-padding: 2 * @component-padding;
 @settings-border-color: #181818;
 @settings-menu-height: 53px;
 
-.settings-view {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+.settings-view, .add-account-modal
+{
+    .control-label {
+        -webkit-user-select: none;
+        cursor: default;
+        margin-bottom: 10px;
 
-    .breadcrumb {
-        margin-bottom: 0;
-        padding: @breadcrumb-padding;
-        font-size: 1.2em;
-        color: @text-color-subtle;
-        list-style: none;
-
-        > li {
-            display: inline-block;
-
-            a {
-                color: @text-color;
-            }
-
-            + li:before {
-                content: "/\00a0"; // Unicode space added since inline-block means non-collapsing white-space
-                padding: 0 5px;
-            }
-        }
-
-        > .active a {
-            color: @text-color-highlight;
+        .setting-description
+        {
+            margin-top: 4px;
         }
     }
 
@@ -184,15 +169,44 @@
         }
     }
 
-    .editor-container {
+    .input-container {
         margin: @component-padding*2 0;
+        padding: 0;
 
         &:last-child {
             margin-bottom: 0;
         }
+    }
+}
 
-        &.settings-filter {
-            margin-bottom: 36px;
+.settings-view
+{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    .breadcrumb {
+        margin-bottom: 0;
+        padding: @breadcrumb-padding;
+        font-size: 1.2em;
+        color: @text-color-subtle;
+        list-style: none;
+
+        > li {
+            display: inline-block;
+
+            a {
+                color: @text-color;
+            }
+
+            + li:before {
+                content: "/\00a0"; // Unicode space added since inline-block means non-collapsing white-space
+                padding: 0 5px;
+            }
+        }
+
+        > .active a {
+            color: @text-color-highlight;
         }
     }
 
@@ -208,22 +222,6 @@
         &.section:empty {
             padding: 0;
             border-top: none;
-        }
-
-        atom-text-editor[mini] {
-            opacity: 0.75;
-
-            .selection .region {
-                background-color: contrast(@input-background-color, lighten(@input-background-color, 8%), darken(@input-background-color, 8%) );
-            }
-        }
-
-        atom-text-editor[mini].is-focused {
-            opacity: 1;
-
-            .selection .region {
-                background-color: contrast(@input-background-color, lighten(@input-background-color, 12%), darken(@input-background-color, 12%) );
-            }
         }
     }
 
@@ -313,17 +311,6 @@
             .sub-section-body .control-group {
                 display: none !important;
             }
-        }
-    }
-
-    .control-label {
-        -webkit-user-select: none;
-        cursor: default;
-        margin-bottom: 10px;
-
-        .setting-description
-        {
-            margin-top: 4px;
         }
     }
 

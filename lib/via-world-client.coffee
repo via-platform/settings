@@ -8,7 +8,7 @@ request = require 'request'
 module.exports =
 class ViaWorldClient
   constructor: (@packageManager, @baseURL) ->
-    @baseURL ?= 'https://via.world/api/'
+    @baseURL ?= 'https://packages.via.world/'
     # 12 hour expiry
     @expiry = 1000 * 60 * 60 * 12
     @createAvatarCache()
@@ -35,26 +35,30 @@ class ViaWorldClient
 
   featuredPackages: (callback) ->
     # TODO clean up caching copypasta
-    @fetchFromCache 'packages/featured', {}, (err, data) =>
-      if data
-        callback(null, data)
-      else
-        @getFeatured(false, callback)
+    # NOTE (DJG) Force loading from web, caching this request seems like a rather silly bit of overengineering from the engineers at Github
+    # @fetchFromCache 'packages/featured', {}, (err, data) =>
+    #   if data
+    #     callback(null, data)
+    #   else
+    @getFeatured(false, callback)
 
   featuredThemes: (callback) ->
     # TODO clean up caching copypasta
-    @fetchFromCache 'themes/featured', {}, (err, data) =>
-      if data
-        callback(null, data)
-      else
-        @getFeatured(true, callback)
+    # NOTE Same as above
+    # @fetchFromCache 'themes/featured', {}, (err, data) =>
+    #   if data
+    #     callback(null, data)
+    #   else
+    @getFeatured(true, callback)
 
   getFeatured: (loadThemes, callback) ->
     # vpm already does this, might as well use it instead of request i guess? The
     # downside is that I need to repeat caching logic here.
+    console.log 'getting featured packages'
     @packageManager.getFeatured(loadThemes)
       .then (packages) =>
         # copypasta from below
+        console.log 'done with that', packages
         key = if loadThemes then 'themes/featured' else 'packages/featured'
         cached =
           data: packages
