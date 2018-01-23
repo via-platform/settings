@@ -1,5 +1,6 @@
 @import "variables";
-@import "ui-variables";
+// @import "ui-variables";
+@import "./package-detail.less";
 @import "./package-card.less";
 @import "./account-card.less";
 @import "./accounts-panel.less";
@@ -7,11 +8,36 @@
 
 @section-padding: 50px;
 @breadcrumb-padding: 2 * @component-padding;
-@settings-border-color: #181818;
-@settings-menu-height: 53px;
+@settings-border-color: @pane-border-color;
+@settings-menu-width: 220px;
 
 .settings-view, .add-account-modal
 {
+    .breadcrumb {
+        margin-bottom: 0;
+        padding: @section-padding @section-padding 0;
+        font-size: 1.2em;
+        color: @text-color-subtle;
+        list-style: none;
+
+        > li {
+            display: inline-block;
+
+            a {
+                color: @text-color;
+            }
+
+            + li:before {
+                content: "/";
+                padding: 0 10px;
+            }
+        }
+
+        > .active a {
+            color: @text-color-highlight;
+        }
+    }
+
     .control-label {
         -webkit-user-select: none;
         cursor: default;
@@ -180,36 +206,15 @@
     }
 }
 
+via-pane-container via-pane .item-views .settings-view.pane-item
+{
+    background: @pane-content-background-color;
+}
+
 .settings-view
 {
     overflow: hidden;
     display: flex;
-    flex-direction: column;
-
-    .breadcrumb {
-        margin-bottom: 0;
-        padding: @breadcrumb-padding;
-        font-size: 1.2em;
-        color: @text-color-subtle;
-        list-style: none;
-
-        > li {
-            display: inline-block;
-
-            a {
-                color: @text-color;
-            }
-
-            + li:before {
-                content: "/\00a0"; // Unicode space added since inline-block means non-collapsing white-space
-                padding: 0 5px;
-            }
-        }
-
-        > .active a {
-            color: @text-color-highlight;
-        }
-    }
 
     .section {
         padding: @section-padding;
@@ -275,8 +280,8 @@
         margin: @section-padding 0;
 
         .sub-section-heading {
-            color: #FFF; //@text-color-subtle;
-            font-size: 1.4em;
+            color: @text-color-subtle;
+            font-size: 1.8em;
             font-weight: bold;
             line-height: 1;
             -webkit-user-select: none;
@@ -349,13 +354,10 @@
     .settings-menu {
         -webkit-user-select: none;
         user-select: none;
-        padding-top: @component-padding;
-        background-color: @pane-background-color;
-        border-bottom: 1px solid @settings-border-color;
-        overflow-x: auto;
-        overflow-y: hidden;
-        display: flex;
-        height: @settings-menu-height;
+        padding: @component-padding 0;
+        border-right: 1px solid @settings-border-color;
+        overflow: auto;
+        width: @settings-menu-width;
 
         .icon:before {
             text-align: center;
@@ -428,7 +430,7 @@
         }
 
         .nav {
-            padding: 0 @section-padding;
+            padding: @section-padding 0;
         }
     }
 
@@ -461,38 +463,6 @@
 
         .grammar-filetypes {
             margin-top: @component-padding;
-        }
-    }
-
-    .package-detail-view {
-        .package-keymap-table {
-            padding-top: @component-padding;
-            padding-left: @component-padding;
-
-            td {
-                white-space: nowrap;
-            }
-        }
-
-        .update-message {
-            padding-right: @component-padding;
-        }
-
-        .link {
-            width: -webkit-fit-content; // prevents hover area being full-width
-        }
-
-        .link,
-        .text {
-            margin: 0 15px @component-padding;
-        }
-
-        .repo-link,
-        .update-link {
-            &:hover {
-                cursor: pointer;
-                text-decoration: underline;
-            }
         }
     }
 
@@ -600,6 +570,7 @@
     .copy-icon {
         cursor: pointer;
         padding-right: 2px;
+        display: none;
 
         &:hover {
             color: #2a6496;
@@ -612,21 +583,14 @@
             table-layout: initial;
         }
 
-        th {
-            padding: @component-padding - 2px 0;
-        }
-
-        td {
-            height: @component-line-height;
-        }
-
         td,
         th {
-            padding-left: 1%;
-            padding-right: 1%;
+            height: @component-line-height + 8;
+            padding: 0 10px;
             white-space: nowrap;
             overflow: hidden;
             border-color: @pane-border-color;
+            text-align: left;
         }
 
         col.keystroke {
@@ -699,6 +663,7 @@
         }
     }
 }
+
 @media all and (max-width: 800px) {
     .thumbnail .btn-toolbar {
         .btn {
