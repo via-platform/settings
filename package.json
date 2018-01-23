@@ -1,6 +1,6 @@
 {
   "name": "settings",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Edit config settings, install packages, and change themes.",
   "main": "./lib/main",
   "scripts": {
