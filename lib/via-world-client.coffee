@@ -54,11 +54,9 @@ class ViaWorldClient
   getFeatured: (loadThemes, callback) ->
     # vpm already does this, might as well use it instead of request i guess? The
     # downside is that I need to repeat caching logic here.
-    console.log 'getting featured packages'
     @packageManager.getFeatured(loadThemes)
       .then (packages) =>
         # copypasta from below
-        console.log 'done with that', packages
         key = if loadThemes then 'themes/featured' else 'packages/featured'
         cached =
           data: packages
