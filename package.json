@@ -1,44 +1,44 @@
 {
-    "name": "settings",
-    "version": "0.5.7",
-    "description": "Edit config settings, install packages, and change themes.",
-    "main": "./lib/main",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [
-        "via",
-        "trading"
-    ],
-    "repository": "https://github.com/via-platform/settings",
-    "author": "Dakota Gordon",
-    "engines": {
-        "via": "*"
-    },
-    "deserializers": {
-        "Settings": "createSettingsView"
-    },
-    "dependencies": {
-        "async": "~0.2.9",
-        "dompurify": "^1.0.3",
-        "etch": "0.9.0",
-        "fs-plus": "^3.0.0",
-        "fuzzaldrin": "^2.1",
-        "glob": "4.3.1",
-        "hosted-git-info": "^2.1.4",
-        "marked": "^0.3.6",
-        "request": "^2.40",
-        "roaster": "^1.1.2",
-        "season": "^6.0.0",
-        "semver": "^5.3.0",
-        "underscore-plus": "^1.0.6"
-    },
-    "providedServices": {},
-    "consumedServices": {
-        "action-bar": {
-            "versions": {
-                "^0.1.0": "consumeActionBar"
-            }
-        }
+  "name": "settings",
+  "version": "0.5.8",
+  "description": "Edit config settings, install packages, and change themes.",
+  "main": "./lib/main",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "via",
+    "trading"
+  ],
+  "repository": "https://github.com/via-platform/settings",
+  "author": "Dakota Gordon",
+  "engines": {
+    "via": "*"
+  },
+  "deserializers": {
+    "Settings": "createSettingsView"
+  },
+  "dependencies": {
+    "async": "~0.2.9",
+    "dompurify": "^1.0.3",
+    "etch": "0.9.0",
+    "fs-plus": "^3.0.0",
+    "fuzzaldrin": "^2.1",
+    "glob": "4.3.1",
+    "hosted-git-info": "^2.1.4",
+    "marked": "^0.3.6",
+    "request": "^2.40",
+    "roaster": "^1.1.2",
+    "season": "^6.0.0",
+    "semver": "^5.3.0",
+    "underscore-plus": "^1.0.6"
+  },
+  "providedServices": {},
+  "consumedServices": {
+    "action-bar": {
+      "versions": {
+        "^0.1.0": "consumeActionBar"
+      }
     }
+  }
 }
