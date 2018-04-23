@@ -2,7 +2,7 @@
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'Settings View'
+      'label': 'Settings'
       'submenu': [
         { 'label': 'Open', 'command': 'settings:open' }
         { 'label': 'Manage Exchanges', 'command': 'settings:manage-exchanges' }
