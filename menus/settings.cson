@@ -5,7 +5,6 @@
       'label': 'Settings'
       'submenu': [
         { 'label': 'Open', 'command': 'settings:open' }
-        { 'label': 'Manage Exchanges', 'command': 'settings:manage-exchanges' }
         { 'label': 'Manage Accounts', 'command': 'settings:manage-accounts' }
         { 'label': 'Manage Packages', 'command': 'settings:manage-packages' }
         { 'label': 'Install Packages', 'command': 'settings:install-packages' }
