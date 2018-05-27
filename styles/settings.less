@@ -6,9 +6,9 @@
 @import "./accounts-panel.less";
 @import "./add-account-modal.less";
 
-@section-padding: 50px;
+@section-padding: 30px;
 @breadcrumb-padding: 2 * @component-padding;
-@settings-border-color: @pane-border-color;
+@settings-border-color: @header-border-color;
 @settings-menu-width: 220px;
 
 .settings-view, .add-account-modal
@@ -52,9 +52,9 @@
     .text {
         color: @text-color;
         font-family: @font-family;
-        font-size: 16px;
+        font-size: 14px;
         -webkit-font-smoothing: antialiased;
-        font-weight: 700;
+        font-weight: 500;
     }
 
     .alert-type(@tx; @bg) {
@@ -241,9 +241,9 @@ via-pane-container via-pane .item-views .settings-view.pane-item
 
     .settings-panels
     {
-        flex: 1;
-        display: flex;
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
     }
 
     .section {
@@ -288,7 +288,7 @@ via-pane-container via-pane .item-views .settings-view.pane-item
     section .section-heading {
         margin-bottom: 15px;
         color: #FFF;
-        font-size: 2em;
+        font-size: 24px;
         font-weight: 700;
         font-family: @font-family;
         line-height: 1;
@@ -311,8 +311,8 @@ via-pane-container via-pane .item-views .settings-view.pane-item
 
         .sub-section-heading {
             color: @text-color-subtle;
-            font-size: 1.8em;
-            font-weight: bold;
+            font-size: 18px;
+            font-weight: 500;
             line-height: 1;
             -webkit-user-select: none;
             font-family: @font-family;
@@ -351,12 +351,12 @@ via-pane-container via-pane .item-views .settings-view.pane-item
     }
 
     .setting-title {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 16px;
         -webkit-user-select: none;
         font-family: @font-family;
         -webkit-font-smoothing: antialiased;
-        font-weight: 700;
+        font-weight: 500;
     }
 
     .setting-description {
@@ -384,83 +384,35 @@ via-pane-container via-pane .item-views .settings-view.pane-item
     .settings-menu {
         -webkit-user-select: none;
         user-select: none;
-        padding: @component-padding 0;
-        border-right: 1px solid @settings-border-color;
-        overflow: auto;
-        width: @settings-menu-width;
+        border-bottom: 1px solid @header-border-color;
+        height: 41px;
+        min-height: 41px;
 
-        .icon:before {
-            text-align: center;
-        }
+        .nav
+        {
+            display: flex;
+            padding: 0 @section-padding;
 
-        .panels-packages {
-            flex-grow: 1;
-            overflow: auto;
-            height: 0;
-
-            li + li {
-                margin-top: 0;
-            }
-
-            li > a {
-                border-radius: 1px !important;
-                padding: 12px 14px;
-                font-weight: bold;
-                line-height: 16px;
-                opacity: 0.85;
-                transition: opacity 0.1s ease-in;
-                box-shadow: inset 0 -1px 0 rgba(0,0,0, 7%);
-
-                &:hover {
-                    opacity: 1;
-                    box-shadow: inset 0 -1px 0 rgba(0,0,0, 7%) !important;
-                }
-            }
-
-            li:first-child {
-                margin-top: 2px;
-            }
-
-            li:last-child {
-                margin-bottom: 10px;
-            }
-
-            li.active a,
-            li.active a:hover {
-                opacity: 1;
-                box-shadow: 0 0 0 1px darken(#3c76dd, 10%) !important;
-
-                .package-author,
-                .package-version {
-                    color: #fff;
-                    opacity: 0.6;
-                }
-            }
-
-            .package-version {
-                line-height: 16px;
-                margin-left: 5px;
-                font-weight: normal;
-                color: #999;
-            }
-
-            .package-author {
-                font-weight: normal;
+            a
+            {
                 display: block;
-                color: #999;
+                height: 40px;
+                font-size: 13px;
+                font-weight: 500;
+                -webkit-font-smoothing: antialiased;
+                color: @text-color;
+                line-height: 39px;
+                margin-right: 20px;
             }
-        }
 
-        .button-area {
-            margin: 15px; // same as nav
-
-            > .btn {
-                width: 100%;
+            li.active > a
+            {
+                height: 41px;
+                margin-bottom: -1px;
+                border-bottom: 2px solid @primary-color;
+                color: @primary-color;
+                line-height: 38px;
             }
-        }
-
-        .nav {
-            padding: @section-padding 0;
         }
     }
 
@@ -539,19 +491,6 @@ via-pane-container via-pane .item-views .settings-view.pane-item
         .search-container {
             display: flex;
             flex-wrap: wrap;
-            margin: 0 -@component-padding/2;
-            padding-top: @component-padding*1.5;
-
-            .editor-container {
-                flex: 1;
-                min-width: 130px;
-                margin: @component-padding/2;
-            }
-
-            .btn-group {
-                margin: @component-padding/2;
-                padding-left: 1px; // Counter balance since btns have margin-left: -1px
-            }
         }
 
         .search-message {
@@ -671,7 +610,7 @@ via-pane-container via-pane .item-views .settings-view.pane-item
     {
         .search-container
         {
-            margin-top: 40px;
+            margin-top: 20px;
 
             .input-text
             {
@@ -684,7 +623,7 @@ via-pane-container via-pane .item-views .settings-view.pane-item
     {
         .search-container
         {
-            margin-top: 40px;
+            margin-top: 20px;
 
             .input-text
             {
@@ -741,6 +680,12 @@ via-pane-container via-pane .item-views .settings-view.pane-item
 
     .btn-wrap-group .btn {
         margin: 0 @component-padding/2 @component-padding/2 0;
+    }
+
+    .thead
+    {
+        height: 25px;
+        min-height: 25px;
     }
 }
 
