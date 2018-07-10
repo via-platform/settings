@@ -3,3 +3,8 @@
 
 '.platform-win32, .platform-linux':
   'ctrl-,': 'settings:open'
+
+'.add-account-modal .add-account-field':
+  'tab': 'settings:focus-next'
+  'shift-tab': 'settings:focus-previous'
+  'enter': 'settings:confirm-account'
