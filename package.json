@@ -18,6 +18,9 @@
   "deserializers": {
     "Settings": "createSettingsView"
   },
+  "uriHandler": {
+    "method": "handleURI"
+},
   "dependencies": {
     "async": "~0.2.9",
     "dompurify": "^1.0.3",
