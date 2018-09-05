@@ -1,6 +1,6 @@
 {
   "name": "settings",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "description": "Edit config settings, install packages, and change themes.",
   "main": "./lib/main",
   "scripts": {
@@ -20,7 +20,7 @@
   },
   "uriHandler": {
     "method": "handleURI"
-},
+  },
   "dependencies": {
     "async": "~0.2.9",
     "dompurify": "^1.0.3",
